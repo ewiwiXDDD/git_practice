@@ -43,40 +43,49 @@
     </header>
 
     <section class="section-padding" id="about">
-        <div class="container">
-            <h2 class="section-title">SDG 14 <span>關鍵挑戰</span></h2>
-            <div class="row g-4">
-                <div class="col-md-3 col-sm-6">
-                    <div class="glass-card p-4 text-center h-100 icon-box">
-                        <i class="fa-solid fa-temperature-arrow-up"></i>
-                        <h4>海水升溫</h4>
-                        <p class="small text-secondary-light">珊瑚白化加劇，導致海洋生物失去棲息地。</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="glass-card p-4 text-center h-100 icon-box">
-                        <i class="fa-solid fa-bottle-water"></i>
-                        <h4>微塑膠</h4>
-                        <p class="small text-secondary-light">塑膠微粒進入食物鏈，最終威脅人類健康。</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="glass-card p-4 text-center h-100 icon-box">
-                        <i class="fa-solid fa-fish-fins"></i>
-                        <h4>過度捕撈</h4>
-                        <p class="small text-secondary-light">破壞生態平衡，導致部分物種瀕臨滅絕。</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="glass-card p-4 text-center h-100 icon-box">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                        <h4>永續行動</h4>
-                        <p class="small text-secondary-light">透過減塑、淨灘與教育，重建人海共生關係。</p>
-                    </div>
+    <div class="container">
+        <h2 class="section-title">SDG 14 <span>關鍵挑戰</span></h2>
+        <div class="row g-4">
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="glass-card p-4 text-center h-100 icon-box interactive-card" data-bs-toggle="modal" data-bs-target="#modalWarning">
+                    <i class="fa-solid fa-temperature-arrow-up"></i>
+                    <h4>海水升溫</h4>
+                    <p class="small text-secondary-light">珊瑚白化加劇，導致海洋生物失去棲息地。</p>
+                    <div class="click-hint"><i class="fa-solid fa-hand-pointer me-1"></i>點擊看詳情</div>
                 </div>
             </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="glass-card p-4 text-center h-100 icon-box interactive-card" data-bs-toggle="modal" data-bs-target="#modalPlastic">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    <h4>微塑膠</h4>
+                    <p class="small text-secondary-light">塑膠微粒進入食物鏈，最終威脅人類健康。</p>
+                    <div class="click-hint"><i class="fa-solid fa-hand-pointer me-1"></i>點擊看詳情</div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="glass-card p-4 text-center h-100 icon-box interactive-card" data-bs-toggle="modal" data-bs-target="#modalFishing">
+                    <i class="fa-solid fa-fish-fins"></i>
+                    <h4>過度捕撈</h4>
+                    <p class="small text-secondary-light">破壞生態平衡，導致部分物種瀕臨滅絕。</p>
+                    <div class="click-hint"><i class="fa-solid fa-hand-pointer me-1"></i>點擊看詳情</div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="glass-card p-4 text-center h-100 icon-box interactive-card" data-bs-toggle="modal" data-bs-target="#modalAction">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <h4>永續行動</h4>
+                    <p class="small text-secondary-light">透過減塑、淨灘與教育，重建人海共生關係。</p>
+                    <div class="click-hint"><i class="fa-solid fa-hand-pointer me-1"></i>點擊看詳情</div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="section-padding" id="data">
         <div class="container">
@@ -177,8 +186,8 @@
     </section>
     
     <section class="section-padding" id="team">
-    <div class="container">
-        <h2 class="section-title">開發團隊 <span>成員介紹</span></h2>
+        <div class="container">
+            <h2 class="section-title">開發團隊 <span>成員介紹</span></h2>
     
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -186,57 +195,60 @@
 
                         <div class="team-member">
                             <div class="member-avatar">
-                                <i class="fa-solid fa-user-astronaut"></i>
+                                <img src="assets/member1.jpg" alt="陳昱廷的照片">
                             </div>
+
                             <div class="member-card card-left">
                                 <div class="card-info">
                                     <h4 class="text-info">陳昱廷</h4>
-                                    <span class="badge bg-warning text-dark mb-2">組長 / PM</span>
-                                    <p class="small mb-0">負責專案統籌、進度管理與報告撰寫。</p>
+                                    <span class="badge bg-warning text-dark mb-2">前端設計師</span>
+                                    <p class="small mb-0">UI/UX設計與題庫製作。</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="team-member">
                             <div class="member-avatar">
-                                <i class="fa-solid fa-code"></i>
+                                <img src="assets/member2.jpg" alt="陳宥勳的照片">
                             </div>
+
                             <div class="member-card card-right">
                                 <div class="card-info">
                                     <h4 class="text-info">陳宥勳</h4>
-                                    <span class="badge bg-success mb-2">前端開發</span>
-                                    <p class="small mb-0">負責網頁切版、互動特效與 RWD 設計。</p>
+                                    <span class="badge bg-success mb-2">前端工程師</span>
+                                    <p class="small mb-0">負責網頁切版、RWD設計與git push。</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="team-member">
                             <div class="member-avatar">
-                                <i class="fa-solid fa-database"></i>
+                                <img src="assets/member3.jpg" alt="洪忠育的照片">
                             </div>
+
                             <div class="member-card card-left">
                                 <div class="card-info">
                                     <h4 class="text-info">洪忠育</h4>
-                                    <span class="badge bg-primary mb-2">資料收集</span>
-                                    <p class="small mb-0">負責海洋數據搜集、圖表資料整理。</p>
+                                    <span class="badge bg-primary mb-2">組長</span>
+                                    <p class="small mb-0">專案統籌、進度追蹤、報告製作。</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="team-member">
                             <div class="member-avatar">
-                                <i class="fa-solid fa-pen-nib"></i>
+                                <img src="assets/member4.jpg" alt="陳建均的照片">
                             </div>
-                            <div class="member-card card-right">
-                               <div class="card-info">
+
+                           <div class="member-card card-right">
+                                <div class="card-info">
                                     <h4 class="text-info">陳建均</h4>
-                                    <span class="badge bg-danger mb-2">文案企劃</span>
-                                    <p class="small mb-0">負責議題文案撰寫、簡報製作與美編。</p>
+                                    <span class="badge bg-danger mb-2">前端工程師</span>
+                                    <p class="small mb-0">程式精修開發與互動功能。</p>
                                 </div>
                             </div>
                         </div>
-
-                  </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -244,24 +256,119 @@
 
     <footer class="text-center text-white-50">
         <div class="container">
-            <p class="mb-2">&copy; 2026 網頁設計期末專題 - 海洋保育小組</p>
+            <p class="mb-2">&copy; 2026 網頁前端設計 - 熊貓23團隊</p>
             <p class="small">Data Sources: NOAA, Our World in Data, UN SDG 14</p>
             
             <button class="btn btn-sm btn-outline-light mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#aboutUsCollapse">
-                關於開發團隊
+                關於團隊
             </button>
             <div class="collapse mt-3" id="aboutUsCollapse">
                 <div class="glass-card p-3 d-inline-block mx-auto" style="max-width: 500px;">
-                    <p class="mb-2">我們是熱愛海洋的開發者！</p>
+                    <p class="mb-2">人类有三大欲望，食欲，性欲，睡眠欲，而在这三大欲望当中，因为食欲是满足人类生存需求的欲望，所以，满足食欲的行为，在这三者中，优先性是第一位的。如果能在进食的过程中，吃下了美味的食物，也能使人类无比愉快，而在现实生活中，存在着对于这种快感执着追求的人，我们通常把这种人称之为美食家，而本餐厅，则专门为那些厌倦世间常见美食的人，量体裁衣，提供符合他们身份的美食。​ </p>
                     <div class="d-flex justify-content-center gap-3">
-                        <div class="text-center"><i class="fa-solid fa-user-astronaut fa-2x mb-1"></i><div class="small">組長</div></div>
-                        <div class="text-center"><i class="fa-solid fa-user-ninja fa-2x mb-1"></i><div class="small">前端</div></div>
-                        <div class="text-center"><i class="fa-solid fa-user-secret fa-2x mb-1"></i><div class="small">資料</div></div>
+                        <div class="text-center"><i class="fa-solid fa-user-astronaut fa-2x mb-1"></i><div class="small">食慾</div></div>
+                        <div class="text-center"><i class="fa-solid fa-user-ninja fa-2x mb-1"></i><div class="small">性慾</div></div>
+                        <div class="text-center"><i class="fa-solid fa-user-secret fa-2x mb-1"></i><div class="small">睡眠慾</div></div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    
+    <div class="modal fade" id="modalWarning" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title fw-bold text-info"><i class="fa-solid fa-temperature-arrow-up me-2"></i>海水升溫危機</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="assets/珊瑚白化.jpg" class="img-fluid rounded mb-3" alt="珊瑚白化">
+                        </div>
+                        <div class="col-md-6">
+                            <p>海洋吸收了溫室效應產生的 90% 多餘熱量，導致全球海水溫度持續上升。</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">🔥 <b>珊瑚白化：</b> 當水溫過高，珊瑚會排出共生藻，最終死亡。</li>
+                                <li class="mb-2">🌪️ <b>極端氣候：</b> 較暖的海水提供能量，使颱風強度增強。</li>
+                                <li>🐟 <b>物種遷徙：</b> 魚類被迫向極地遷移，影響全球漁業資源。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPlastic" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title fw-bold text-info"><i class="fa-solid fa-bottle-water me-2"></i>無所不在的微塑膠</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="assets/微塑膠.webp" class="img-fluid rounded mb-3" alt="微塑膠">
+                        </div>
+                        <div class="col-md-6">
+                            <p>微塑膠指直徑小於 5mm 的塑膠碎片，它們像海中的PM2.5，難以清除。</p>
+                            <p>研究顯示，從深海溝到極地冰層，甚至人體的血液中，都已發現微塑膠的蹤跡。它們會吸附有毒物質，進入食物鏈。</p>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalFishing" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title fw-bold text-info"><i class="fa-solid fa-fish-fins me-2"></i>海洋資源枯竭</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="assets/過度捕撈.webp" class="img-fluid rounded mb-3" alt="捕撈">
+                        </div>
+                        <div class="col-md-6">
+                            <p>現代工業化捕魚技術效率極高，但海洋生物的繁殖速度趕不上捕撈速度。</p>
+                            <p>這不僅導致鮪魚等大型魚類數量銳減，常見的「混獲」更導致海龜、海豚無辜犧牲。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAction" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title fw-bold text-info"><i class="fa-solid fa-hand-holding-heart me-2"></i>我們可以做什麼？</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="assets/永續行動.png" class="img-fluid rounded mb-3" alt="淨灘">
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush bg-transparent text-start">
+                                <li class="list-group-item bg-transparent text-white border-secondary">🥡 <b>源頭減量：</b> 自備環保杯、餐具。</li>
+                                <li class="list-group-item bg-transparent text-white border-secondary">🧴 <b>選擇成分：</b> 避免購買含塑膠微粒的清潔用品。</li>
+                                <li class="list-group-item bg-transparent text-white border-secondary">🐠 <b>友善海鮮：</b> 選擇永續漁法捕獲的海鮮。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/questionBank.js"></script> 

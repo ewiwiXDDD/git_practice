@@ -135,143 +135,245 @@ footer { border-top: 1px solid var(--glass-border); padding: 2rem 0; background:
     .hero-title { font-size: 2.5rem; }
 }
 
-/* --- 團隊介紹 2x2 HUD 風格 --- */
+/* =========================================
+   TEAM HUD SECTION (科幻團隊介紹特效)
+   ========================================= */
 
-/* 1. Grid 容器：設定 2x2 排列 */
+/* 1. 網格容器設定 */
 .team-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 兩欄 */
-    gap: 40px; /* 間距 */
-    max-width: 500px;
-    margin: 0 auto; /* 置中 */
-    padding: 20px;
+    grid-template-columns: 1fr 1fr; /* 左右兩欄 */
+    gap: 80px; /* 拉大頭貼之間的水平距離 */
+    row-gap: 60px; /* 拉大垂直距離 */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 20px;
 }
 
-/* 2. 單個成員區塊 */
+/* 2. 單個成員區塊 (定位基準點) */
 .team-member {
-    position: relative; /* 讓絕對定位的卡片以此為基準 */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 3. 頭貼樣式 (發光圓圈) */
+/* 3. 頭貼設定 (圓形發光體) */
+/* 3. 頭貼設定 (長方形晶片卡風格) */
 .member-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: rgba(0, 229, 255, 0.1);
+    width: 250px;  /* 寬度 */
+    height: 300px; /* 高度：設為長方形適合人像 */
+    border-radius: 12px; /* 微圓角，像手機 APP 圖示或識別證 */
+    
+    /* 邊框樣式 */
     border: 2px solid var(--accent-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    color: #fff;
+    background: #000; 
+    
+    /* 定位與層級 */
+    position: relative;
+    z-index: 20; 
     cursor: pointer;
-    transition: 0.3s ease;
+    overflow: hidden;
+    
+    /* 動畫過渡 */
+    transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
-    z-index: 2; /* 確保頭貼在線條上面 */
+    
+    /* 讓內容置中 (如果是放 img 則會填滿) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* 如果有放圖片，讓圖片填滿圓圈 */
 .member-avatar img {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+    object-fit: cover; /* 確保照片填滿長方形且不變形 */
 }
 
-/* 滑鼠移上去時頭貼發亮 */
+/* 滑鼠移入時的特效 */
 .team-member:hover .member-avatar {
-    background: var(--accent-color);
-    color: #000;
-    box-shadow: 0 0 30px var(--accent-color);
-    transform: scale(1.1);
+    transform: translateY(-5px) scale(1.05); /* 稍微往上浮起並放大 */
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.6); /* 強烈發光 */
+    border-color: #fff;
 }
 
-/* 4. 彈出視窗卡片 (預設隱藏) */
+/* 4. 隱形手臂 (member-card) - 定位容器 */
 .member-card {
     position: absolute;
-    width: 200px;
-    padding: 15px;
-    background: rgba(15, 23, 42, 0.9); /* 深色背景 */
-    border: 1px solid var(--accent-color);
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    
-    /* 隱藏狀態 */
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0.8);
-    transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 彈跳動畫效果 */
     z-index: 10;
-    pointer-events: none; /* 避免還沒出現時誤觸 */
+    display: flex;
+    align-items: center;
+    pointer-events: none; /* 讓滑鼠不會誤觸到透明區域 */
+    height: 0; /* 確保線條垂直置中 */
 }
 
-/* 5. 連接線 (使用偽元素 ::before 畫線) */
+/* 5. 畫出那條「線」 (使用 ::before) */
 .member-card::before {
     content: '';
     position: absolute;
-    width: 40px; /* 線的長度 */
     height: 2px; /* 線的粗細 */
     background: var(--accent-color);
-    top: 50%;
     box-shadow: 0 0 10px var(--accent-color);
+    width: 0px; /* 初始長度為 0 */
+    
+    /* [移出時的順序]：線條最後才縮回去 (延遲 0.3s 等視窗先消失) */
+    transition: width 0.3s ease 0.3s; 
 }
 
-/* --- 左側成員的卡片設定 (卡片出現在左邊) --- */
-.card-left {
-    right: 120px; /* 把卡片推到頭貼左邊 */
-    text-align: right;
-}
-.card-left::before {
-    right: -40px; /* 線連到卡片右側 */
-}
-
-/* --- 右側成員的卡片設定 (卡片出現在右邊) --- */
-.card-right {
-    left: 120px; /* 把卡片推到頭貼右邊 */
+/* 6. 視窗內容 (card-info) */
+.card-info {
+    width: 320px; /* 視窗寬度 */
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.95); /* 深色半透明背景 */
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    color: #fff;
     text-align: left;
-}
-.card-right::before {
-    left: -40px; /* 線連到卡片左側 */
+    position: relative;
+    
+    /* 裝飾 */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 229, 255, 0.1);
+    backdrop-filter: blur(5px);
+
+    /* 初始狀態：隱藏 + 壓扁 */
+    opacity: 0;
+    transform: scaleX(0); 
+    
+    /* [移出時的順序]：視窗立刻消失 (無延遲) */
+    transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
 }
 
-/* 6. 滑鼠懸停時的觸發效果 */
-.team-member:hover .member-card {
+/* =========================================
+   核心動畫邏輯 (Hover Trigger)
+   ========================================= */
+
+/* 1. 線條變長 (立即開始) */
+.team-member:hover .member-card::before {
+    width: 100px; 
+    transition-delay: 0s; 
+}
+
+/* 2. 視窗展開 (延遲 0.3s) */
+.team-member:hover .card-info {
     opacity: 1;
-    visibility: visible;
-    transform: scale(1); /* 回復正常大小 */
+    transform: scaleX(1);
+    transition-delay: 0.3s;
 }
 
-/* --- 手機版調整 (RWD) --- */
-@media (max-width: 768px) {
+/* =========================================
+   左右位置佈局
+   ========================================= */
+
+/* --- 左側成員 --- */
+.card-left {
+    right: 50%; 
+    margin-right: 60px; /* 離頭貼距離 */
+    padding-right: 100px; /* 預留給線條的空間 */
+    flex-direction: row; 
+    justify-content: flex-end; /* 內容靠右 */
+}
+.card-left::before { right: 0; }
+.card-left .card-info { transform-origin: right center; }
+
+/* --- 右側成員 --- */
+.card-right {
+    left: 50%;
+    margin-left: 60px; /* 離頭貼距離 */
+    padding-left: 100px; /* 預留給線條的空間 */
+    flex-direction: row;
+    justify-content: flex-start; /* 內容靠左 */
+}
+.card-right::before { left: 0; }
+.card-right .card-info { transform-origin: left center; }
+
+/* =========================================
+   RWD 手機版調整
+   ========================================= */
+@media (max-width: 992px) {
     .team-grid {
-        grid-template-columns: 1fr; /* 手機變成一直排 */
-        gap: 20px;
+        grid-template-columns: 1fr; /* 單欄 */
+        gap: 40px;
     }
-    
-    /* 手機版卡片統一改為「顯示在下方」 */
-    .card-left, .card-right {
-        position: relative;
-        right: auto;
-        left: auto;
-        margin-top: 20px;
+    .member-card {
+        position: static;
+        height: auto;
+        margin: 20px 0 0 0 !important;
+        padding: 0 !important;
+        pointer-events: auto;
+        justify-content: center;
+    }
+    .member-card::before { display: none; }
+    .card-info {
         width: 100%;
-        text-align: center;
-        
-        /* 手機版不隱藏，直接顯示比較好操作 */
+        max-width: 400px;
         opacity: 1;
-        visibility: visible;
-        transform: scale(1);
+        transform: scaleX(1);
+        text-align: center;
+        transition: none;
     }
-    
-    /* 手機版把線條改成垂直的 */
-    .member-card::before {
-        width: 2px;
-        height: 20px;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+    .team-member { flex-direction: column; }
+}
+
+/* =========================================
+   互動視窗 (Modals) 與 卡片互動樣式
+   ========================================= */
+
+/* 1. 讓卡片看起來可以點擊 */
+.interactive-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 滑鼠移上去：上浮 + 發光 + 邊框變色 */
+.interactive-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 229, 255, 0.2);
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 2. 點擊提示文字 (預設隱藏，Hover 時出現) */
+.click-hint {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.interactive-card:hover .click-hint {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. 彈出視窗 (Modal) 的玻璃擬態樣式 */
+.glass-modal {
+    background: rgba(15, 23, 42, 0.95); /* 深色背景 */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--accent-color);
+    border-radius: 16px;
+    color: #fff;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+/* 視窗標題顏色 */
+.modal-title {
+    color: var(--accent-color) !important;
+}
+
+/* 關閉按鈕 (X) 樣式 */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* 視窗內的列表文字 */
+.glass-modal li {
+    font-size: 1.05rem;
+    line-height: 1.6;
 }

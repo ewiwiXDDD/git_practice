@@ -1,3 +1,6 @@
+// scripts.js 
+//動畫、圖表與測驗邏輯
+
 /* 1. 初始化圖表 (使用更現代的配色) */
 document.addEventListener("DOMContentLoaded", function() {
     // 塑膠圖表
@@ -184,6 +187,3 @@ function showResult() {
     else if(score >= 60) status.innerText = "不錯喔！繼續保持對海洋的關注！🐟";
     else status.innerText = "加油！海洋需要你更多的了解！📚";
 }
-
-// js/scripts.js 的最下方
-
