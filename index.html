@@ -12,7 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        /* 100% 保持你原本的所有樣式設定 */
         header.masthead {
             min-height: 100vh;
             background: linear-gradient(150deg, rgba(29, 128, 159, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%), 
@@ -37,7 +36,23 @@
         .menu-toggle { position: fixed; right: 15px; top: 15px; width: 50px; height: 50px; text-align: center; color: #fff; background: rgba(52, 58, 64, 0.5); line-height: 50px; z-index: 999; border-radius: 5px; }
         
         .chart-card { background: #fff; padding: 2rem; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15); }
-        .service-icon { background-color: #fff; color: #1D809F; height: 7rem; width: 7rem; display: block; line-height: 7.5rem; font-size: 2.25rem; box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1); }
+        
+        .service-icon { 
+            background-color: #fff; 
+            color: #1D809F; 
+            height: 7rem; 
+            width: 7rem; 
+            display: block; 
+            line-height: 7.5rem; 
+            font-size: 2.25rem; 
+            box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .service-icon:hover {
+            transform: scale(1.1);
+            background-color: #f8f9fa;
+        }
 
         .hotspot-item { cursor: pointer; transition: 0.3s; border-left: 5px solid #ccc; background: #fff; padding: 1.2rem; border-radius: 0.5rem; margin-bottom: 1rem; box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.05); }
         .hotspot-item:hover { transform: translateX(5px); background: #f8f9fa; }
@@ -45,31 +60,25 @@
         .active-river { border-left-color: #f1c40f !important; background: #fffdf0 !important; }
         .active-taiwan { border-left-color: #3498db !important; background: #f0f7ff !important; }
 
-        /* 測驗進度條專用樣式 */
         .progress { height: 12px; background-color: rgba(255,255,255,0.2); border-radius: 10px; margin: 20px 0; }
         .progress-bar { background-color: #ecb807; transition: width 0.4s ease; }
-            #about-us-btn{
-        position: fixed;
-        right: 12px;
-        bottom: 10px;
-        font-size: 12px;
-        opacity: 0.45;
-        z-index: 998;
-        padding: 4px 6px;
-        border-radius: 6px;
-        background: rgba(0,0,0,0.08);
-        backdrop-filter: blur(2px);
-        transition: opacity .2s ease, background .2s ease;
+        
+        #about-us-btn {
+            position: fixed;
+            right: 12px;
+            bottom: 10px;
+            font-size: 12px;
+            opacity: 0.45;
+            z-index: 998;
+            padding: 4px 6px;
+            border-radius: 6px;
+            background: rgba(0,0,0,0.08);
+            backdrop-filter: blur(2px);
+            transition: opacity .2s ease, background .2s ease;
         }
-        #about-us-btn:hover{
-        opacity: 0.85;
-        background: rgba(0,0,0,0.18);
-        }
-
+        #about-us-btn:hover { opacity: 0.85; background: rgba(0,0,0,0.18); }
     </style>
 </head>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <body id="page-top">
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
@@ -108,32 +117,149 @@
         <div class="container px-4 px-lg-5">
             <div class="content-section-heading">
                 <h3 class="text-secondary mb-0">Issues</h3>
-                <h2 class="mb-5">我們面臨的挑戰</h2>
+                <h2 class="mb-5">我們面臨的挑戰 (點擊圖示查看詳情)</h2>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center d-flex flex-column align-items-center">
-                    <span class="service-icon rounded-circle mb-3"><i class="icon-drop"></i></span>
+                    <span class="service-icon rounded-circle mb-3" data-bs-toggle="modal" data-bs-target="#modalTemp">
+                        <i class="icon-drop"></i>
+                    </span>
                     <h4><strong>海水升溫</strong></h4>
-                    <p class="text-faded mb-0">珊瑚白化導致海洋棲地喪失</p>
+                    <p class="text-faded mb-0">全球暖化對海洋造成的不可逆傷害</p>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center d-flex flex-column align-items-center">
-                    <span class="service-icon rounded-circle mb-3"><i class="icon-ban"></i></span>
+                    <span class="service-icon rounded-circle mb-3" data-bs-toggle="modal" data-bs-target="#modalPlastic">
+                        <i class="icon-ban"></i>
+                    </span>
                     <h4><strong>微塑膠</strong></h4>
-                    <p class="text-faded mb-0">進入食物鏈威脅人類健康</p>
+                    <p class="text-faded mb-0">肉眼看不見卻無所不在的食物鏈威脅</p>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5 mb-md-0 text-center d-flex flex-column align-items-center">
-                    <span class="service-icon rounded-circle mb-3"><i class="icon-direction"></i></span>
+                    <span class="service-icon rounded-circle mb-3" data-bs-toggle="modal" data-bs-target="#modalHabitat">
+                        <i class="icon-direction"></i>
+                    </span>
                     <h4><strong>棲地過載</strong></h4>
-                    <p class="text-faded mb-0">海洋生物活動空間日益緊縮</p>
+                    <p class="text-faded mb-0">人為活動與資源開發對生物空間的擠壓</p>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center d-flex flex-column align-items-center">
-                    <span class="service-icon rounded-circle mb-3"><i class="icon-heart"></i></span>
+                    <span class="service-icon rounded-circle mb-3" data-bs-toggle="modal" data-bs-target="#modalFuture">
+                        <i class="icon-heart"></i>
+                    </span>
                     <h4><strong>永續保育</strong></h4>
-                    <p class="text-faded mb-0">透過數據驅動落實減塑行動</p>
+                    <p class="text-faded mb-0">從個人到政策的具體減塑與守護方案</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="modal fade" id="modalTemp" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content text-start text-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"><i class="icon-drop me-2"></i>海水升溫：無聲的熱浪</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-3">
+                            <img src="https://images.unsplash.com/photo-1546500840-ae38253aba9b?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded shadow-sm" alt="珊瑚白化">
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>危機成因：</strong> 溫室效應使大氣熱量增加，而海洋吸收了超過 90% 的多餘熱能，導致全球平均海水溫度持續攀升。</p>
+                            <p><strong>深遠影響：</strong></p>
+                            <ul>
+                                <li><strong>大規模珊瑚白化：</strong> 珊瑚失去共生藻提供養分，進而導致整個珊瑚礁生態系崩潰。</li>
+                                <li><strong>改變洋流系統：</strong> 溫水與冷水的分布改變會影響全球氣候規律，引發更強烈的氣旋與風暴。</li>
+                                <li><strong>缺氧區域擴大：</strong> 溫水含氧量較低，導致許多深海生物面臨窒息風險。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPlastic" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content text-start text-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"><i class="icon-ban me-2"></i>微塑膠：食物鏈的隱形毒藥</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 order-md-2 mb-3">
+                            <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded shadow-sm" alt="微塑膠">
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <p><strong>什麼是微塑膠？</strong> 直徑小於 5 毫米的塑膠微粒，來源於塑膠垃圾的自然崩解、輪胎磨損，甚至是洗衣服時脫落的合成纖維。</p>
+                            <p><strong>生物與健康威脅：</strong></p>
+                            <ul>
+                                <li><strong>生物累積效應：</strong> 浮游生物誤食後，微塑膠會隨著大魚吃小魚，最終進入人類的餐桌。</li>
+                                <li><strong>化學吸附：</strong> 微塑膠在海中會吸附重金屬與持久性有機污染物，增加毒性傳播。</li>
+                                <li><strong>生理傷害：</strong> 對海洋生物造成消化道阻塞與發育遲緩。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalHabitat" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content text-start text-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"><i class="icon-direction me-2"></i>棲地過載：擁擠且破碎的海洋</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-3">
+                            <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded shadow-sm" alt="繁忙航道">
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>生存空間的縮減：</strong> 隨著全球航運頻繁、離岸風電開發以及海底電纜佈署，海洋生物的自然棲地正被不斷切割。</p>
+                            <p><strong>面臨的難題：</strong></p>
+                            <ul>
+                                <li><strong>噪音汙染：</strong> 船隻與工程噪音嚴重干擾鯨豚類的聲納導航，造成集體擱淺。</li>
+                                <li><strong>底拖網破壞：</strong> 商業捕撈行為徹底毀損海床構造，讓深海生物失去家園。</li>
+                                <li><strong>航道碰撞：</strong> 頻繁的貨輪往來增加大型海洋哺乳動物（如藍鯨、露脊鯨）受傷致死的風險。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalFuture" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content text-start text-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"><i class="icon-heart me-2"></i>永續保育：與大海共生的未來</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 order-md-2 mb-3">
+                            <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded shadow-sm" alt="永續保育">
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <p><strong>我們能做的具體行動：</strong> 雖然海洋危機巨大，但透過集體的力量，我們依然能為下一代留下蔚藍的海洋。</p>
+                            <p><strong>落實策略：</strong></p>
+                            <ul>
+                                <li><strong>源頭減塑：</strong> 減少一次性塑膠使用，改用可回收材質，從根本切斷垃圾入海。</li>
+                                <li><strong>支持海洋保護區：</strong> 透過政策設立 (MPA)，讓受損的生態系統有機會修復生機。</li>
+                                <li><strong>責任漁業消費：</strong> 選購標有永續漁法認證的產品，拒絕消費受威脅物種。</li>
+                                <li><strong>公民科學監測：</strong> 利用開源數據監控水溫與海廢分布，精準執行清理。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="content-section" id="portfolio">
         <div class="container px-4 px-lg-5">
@@ -192,7 +318,6 @@
     <section class="content-section bg-primary text-white text-center">
         <div class="container px-4 px-lg-5">
             <h2 id="quiz-title" class="mb-4">互動測驗：海洋知識大挑戰</h2>
-            
             <div id="quiz-wrapper" style="max-width: 600px; margin: 0 auto;">
                 <div class="d-flex justify-content-between mb-1">
                     <small id="progress-text">題目：1 / 10</small>
@@ -201,218 +326,156 @@
                 <div class="progress">
                     <div id="quiz-progress-bar" class="progress-bar" role="progressbar" style="width: 10%"></div>
                 </div>
-
                 <div id="question-box">
                     <h4 id="question-text" class="mb-4">載入中...</h4>
-                    <div id="options-area" class="row g-3">
-                        </div>
+                    <div id="options-area" class="row g-3"></div>
                 </div>
-
                 <div id="result-box" style="display: none;">
                     <h1 id="final-score-display" class="display-3 fw-bold mb-4"></h1>
                     <button class="btn btn-xl btn-light" onclick="resetQuiz()">重新挑戰</button>
                 </div>
             </div>
-
             <div id="quiz-feedback" class="mt-4 h4" style="min-height: 1.5em;"></div>
         </div>
     </section>
 
     <footer class="footer text-center py-5">
         <div class="container px-4 px-lg-5">
-            <p class="text-muted small mb-0">熊貓23 海洋生物保育資訊網 ©2026 </p>
-            
+            <p class="text-muted small mb-0">熊貓23 海洋生物保育資訊網 ©2026</p>
         </div>
-
-        <a
-        id="about-us-btn"
-        class="text-white-50 text-decoration-none"
-        data-bs-toggle="collapse"
-        href="#about-us-panel"
-        role="button"
-        aria-expanded="false"
-        aria-controls="about-us-panel"
-        >
-        關於我們
-        </a>
-
-        <!-- 點開才出現的內容 -->
+        <a id="about-us-btn" class="text-white-50 text-decoration-none" data-bs-toggle="collapse" href="#about-us-panel" role="button" aria-expanded="false">關於我們</a>
         <div id="about-us-panel" class="collapse mt-3">
-        <div class="card border-0" style="max-width: 720px; margin: 0 auto;">
-            <div class="card-body">
-            <h5 class="mb-3">關於我們</h5>
-            <p class="mb-3 text-muted">
-                是誰不見了呢?
-            </p>
-
-            <!-- 放照片：把 src 換成你的圖片路徑 -->
-            <img
-                src="./assets/about-us.jpg"
-                alt="About us"
-                class="img-fluid rounded"
-                loading="lazy"
-            />
+            <div class="card border-0" style="max-width: 720px; margin: 0 auto;">
+                <div class="card-body">
+                    <h5 class="mb-3">關於我們</h5>
+                    <p class="mb-3 text-muted">是誰不見了呢?</p>
+                    <img src="./assets/about-us.jpg" alt="About us" class="img-fluid rounded" loading="lazy" />
+                </div>
             </div>
         </div>
-        </div>
-
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-  // 1. 地圖邏輯 (完全保留你的 id 與 src)
-  function changeLocation(type) {
-    const map = document.getElementById('map-iframe');
-    const btns = document.querySelectorAll('.hotspot-item');
-    btns.forEach(b => b.classList.remove('active-gpgp', 'active-river', 'active-taiwan'));
+        function changeLocation(type) {
+            const map = document.getElementById('map-iframe');
+            const btns = document.querySelectorAll('.hotspot-item');
+            btns.forEach(b => b.classList.remove('active-gpgp', 'active-river', 'active-taiwan'));
+            if (type === 'gpgp') {
+                map.src = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14949540.353360215!2d-150.0!3d32.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
+                document.getElementById('btn-gpgp').classList.add('active-gpgp');
+            } else if (type === 'river') {
+                map.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15444.646867375685!2d120.9754!3d14.5937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca235882e753%3A0x6779e5a1b3f9f9b5!2sPasig%20River!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
+                document.getElementById('btn-river').classList.add('active-river');
+            } else if (type === 'taiwan') {
+                map.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d231365.17621111622!2d121.5794!3d25.1311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x345d4e104f296991%3A0x6b8764835848e040!2z5YWr5paX5a2Q!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
+                document.getElementById('btn-taiwan').classList.add('active-taiwan');
+            }
+        }
 
-    if (type === 'gpgp') {
-      map.src = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14949540.353360215!2d-150.0!3d32.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
-      document.getElementById('btn-gpgp').classList.add('active-gpgp');
-    } else if (type === 'river') {
-      map.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15444.646867375685!2d120.9754!3d14.5937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca235882e753%3A0x6779e5a1b3f9f9b5!2sPasig%20River!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
-      document.getElementById('btn-river').classList.add('active-river');
-    } else if (type === 'taiwan') {
-      map.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d231365.17621111622!2d121.5794!3d25.1311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x345d4e104f296991%3A0x6b8764835848e040!2z5YWr5paX5a2Q!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
-      document.getElementById('btn-taiwan').classList.add('active-taiwan');
-    }
-  }
+        window.addEventListener('DOMContentLoaded', event => {
+            const sidebarWrapper = document.getElementById('sidebar-wrapper');
+            document.querySelector('.menu-toggle').addEventListener('click', e => {
+                e.preventDefault();
+                sidebarWrapper.classList.toggle('active');
+            });
 
-  // 3. 初始化 (保留你的圖表與側邊欄)
-  window.addEventListener('DOMContentLoaded', event => {
-    const sidebarWrapper = document.getElementById('sidebar-wrapper');
-    document.querySelector('.menu-toggle').addEventListener('click', e => {
-      e.preventDefault();
-      sidebarWrapper.classList.toggle('active');
-    });
+            new Chart(document.getElementById('plasticChart'), {
+                type: 'bar',
+                data: { labels: ['2015', '2018', '2021', '2024'], datasets: [{ label: '塑膠量 (Mt)', data: [4.8, 6.2, 8.5, 11.2], backgroundColor: '#1D809F' }] }
+            });
+            new Chart(document.getElementById('coralChart'), {
+                type: 'line',
+                data: { labels: ['1990', '2000', '2010', '2020'], datasets: [{ label: '覆蓋率 %', data: [45, 38, 28, 18], borderColor: '#e74c3c', fill: true }] }
+            });
+        });
+    </script>
 
-    new Chart(document.getElementById('plasticChart'), {
-      type: 'bar',
-      data: { labels: ['2015', '2018', '2021', '2024'], datasets: [{ label: '塑膠量 (Mt)', data: [4.8, 6.2, 8.5, 11.2], backgroundColor: '#1D809F' }] }
-    });
-    new Chart(document.getElementById('coralChart'), {
-      type: 'line',
-      data: { labels: ['1990', '2000', '2010', '2020'], datasets: [{ label: '覆蓋率 %', data: [45, 38, 28, 18], borderColor: '#e74c3c', fill: true }] }
-    });
-  });
-</script>
+    <script type="module">
+        import { questionBank } from "./js/questionBank.js";
+        const QUIZ_COUNT = 10;
+        let quizQuestions = [];
+        let currentQ = 0;
+        let score = 0;
 
-<!-- ✅ 新增：用 questionBank.js 題庫 + 隨機抽題（不影響其他功能） -->
-<script type="module">
-  import { questionBank } from "./js/questionBank.js";
+        function shuffle(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
 
+        function pickRandomQuestions(n) {
+            const bank = Array.isArray(questionBank) ? questionBank : [];
+            return shuffle(bank).slice(0, Math.min(n, bank.length));
+        }
 
+        function loadQuestion() {
+            const feedback = document.getElementById('quiz-feedback');
+            if (feedback) feedback.innerHTML = "";
+            const total = quizQuestions.length || QUIZ_COUNT;
+            const qData = quizQuestions[currentQ];
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('progress-text').innerText = `題目：${currentQ + 1} / ${total}`;
+            document.getElementById('quiz-progress-bar').style.width = `${((currentQ + 1) / total) * 100}%`;
+            const optionsArea = document.getElementById('options-area');
+            optionsArea.innerHTML = "";
+            qData.o.forEach((opt, index) => {
+                const col = document.createElement('div');
+                col.className = "col-md-6";
+                const btn = document.createElement('button');
+                btn.className = "btn btn-xl btn-outline-light w-100 py-3 mb-2";
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(index === qData.a);
+                col.appendChild(btn);
+                optionsArea.appendChild(col);
+            });
+        }
 
-  const QUIZ_COUNT = 10;
-  let quizQuestions = [];
-  let currentQ = 0;
-  let score = 0;
+        function checkAnswer(isCorrect) {
+            const feedback = document.getElementById('quiz-feedback');
+            const scoreText = document.getElementById('score-text');
+            const qData = quizQuestions[currentQ];
+            if (isCorrect) {
+                score += 10;
+                feedback.innerHTML = "✨ 正確！" + (qData.e ? ` <span class="small d-block mt-2">${qData.e}</span>` : "");
+                feedback.style.color = "#2ecc71";
+            } else {
+                feedback.innerHTML = `❌ 答錯了，正確答案是：${qData.o[qData.a]}` + (qData.e ? ` <span class="small d-block mt-2">${qData.e}</span>` : "");
+                feedback.style.color = "#f1c40f";
+            }
+            scoreText.innerText = `目前得分：${score}`;
+            setTimeout(() => {
+                currentQ++;
+                if (currentQ < quizQuestions.length) loadQuestion();
+                else showResult();
+            }, 1000);
+        }
 
-  function shuffle(arr) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
+        function showResult() {
+            document.getElementById('question-box').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+            document.getElementById('quiz-feedback').innerHTML = "";
+            document.getElementById('final-score-display').innerText = `${score} / ${quizQuestions.length * 10}`;
+            document.getElementById('quiz-title').innerText = "測驗完成！";
+        }
 
-  function pickRandomQuestions(n) {
-    const bank = Array.isArray(questionBank) ? questionBank : [];
-    const picked = shuffle(bank).slice(0, Math.min(n, bank.length));
-    return picked;
-  }
+        function resetQuiz() {
+            quizQuestions = pickRandomQuestions(QUIZ_COUNT);
+            currentQ = 0;
+            score = 0;
+            document.getElementById('score-text').innerText = "目前得分：0";
+            document.getElementById('question-box').style.display = 'block';
+            document.getElementById('result-box').style.display = 'none';
+            document.getElementById('quiz-title').innerText = "互動測驗：海洋知識大挑戰";
+            document.getElementById('quiz-feedback').innerHTML = "";
+            loadQuestion();
+        }
 
-  function loadQuestion() {
-    const feedback = document.getElementById('quiz-feedback');
-    if (feedback) feedback.innerHTML = "";
-
-    const total = quizQuestions.length || QUIZ_COUNT;
-
-    const qData = quizQuestions[currentQ];
-    document.getElementById('question-text').innerText = qData.q;
-
-    document.getElementById('progress-text').innerText = `題目：${currentQ + 1} / ${total}`;
-    document.getElementById('quiz-progress-bar').style.width = `${((currentQ + 1) / total) * 100}%`;
-
-    const optionsArea = document.getElementById('options-area');
-    optionsArea.innerHTML = "";
-
-    qData.o.forEach((opt, index) => {
-      const col = document.createElement('div');
-      col.className = "col-md-6";
-
-      const btn = document.createElement('button');
-      btn.className = "btn btn-xl btn-outline-light w-100 py-3 mb-2";
-      btn.innerText = opt;
-      btn.onclick = () => checkAnswer(index === qData.a);
-
-      col.appendChild(btn);
-      optionsArea.appendChild(col);
-    });
-  }
-
-  function checkAnswer(isCorrect) {
-    const feedback = document.getElementById('quiz-feedback');
-    const scoreText = document.getElementById('score-text');
-
-    const qData = quizQuestions[currentQ];
-
-    if (isCorrect) {
-      score += 10;
-      if (feedback) {
-        feedback.innerHTML = "✨ 正確！" + (qData.e ? ` <span class="small d-block mt-2">${qData.e}</span>` : "");
-        feedback.style.color = "#2ecc71";
-      }
-    } else {
-      const correct = qData.o[qData.a];
-      if (feedback) {
-        feedback.innerHTML = `❌ 答錯了，正確答案是：${correct}` + (qData.e ? ` <span class="small d-block mt-2">${qData.e}</span>` : "");
-        feedback.style.color = "#f1c40f";
-      }
-    }
-
-    if (scoreText) scoreText.innerText = `目前得分：${score}`;
-
-    setTimeout(() => {
-      currentQ++;
-      if (currentQ < quizQuestions.length) {
-        loadQuestion();
-      } else {
-        showResult();
-      }
-    }, 1000);
-  }
-
-  function showResult() {
-    document.getElementById('question-box').style.display = 'none';
-    document.getElementById('result-box').style.display = 'block';
-    document.getElementById('quiz-feedback').innerHTML = "";
-    document.getElementById('final-score-display').innerText = `${score} / ${quizQuestions.length * 10}`;
-    document.getElementById('quiz-title').innerText = "測驗完成！";
-  }
-
-  function resetQuiz() {
-    quizQuestions = pickRandomQuestions(QUIZ_COUNT);
-    currentQ = 0;
-    score = 0;
-
-    document.getElementById('score-text').innerText = "目前得分：0";
-    document.getElementById('question-box').style.display = 'block';
-    document.getElementById('result-box').style.display = 'none';
-    document.getElementById('quiz-title').innerText = "互動測驗：海洋知識大挑戰";
-    document.getElementById('quiz-feedback').innerHTML = "";
-
-    loadQuestion();
-  }
-
-  // ✅ 讓 HTML 的 onclick="resetQuiz()" 能用（module 作用域不會自動變全域）
-  window.resetQuiz = resetQuiz;
-
-  // 初次載入也抽題
-  window.addEventListener('DOMContentLoaded', () => {
-    resetQuiz();
-  });
-</script>
-
+        window.resetQuiz = resetQuiz;
+        window.addEventListener('DOMContentLoaded', () => resetQuiz());
+    </script>
 </body>
 </html>
