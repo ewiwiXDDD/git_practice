@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth; /* 讓點擊導覽列時，網頁會平滑滑動 */
+}
+
 .gradient-text {
 /* 1. 設定背景漸層 */
     background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
@@ -129,4 +133,145 @@ footer { border-top: 1px solid var(--glass-border); padding: 2rem 0; background:
 /* 響應式字體 */
 @media (max-width: 768px) {
     .hero-title { font-size: 2.5rem; }
+}
+
+/* --- 團隊介紹 2x2 HUD 風格 --- */
+
+/* 1. Grid 容器：設定 2x2 排列 */
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 兩欄 */
+    gap: 40px; /* 間距 */
+    max-width: 500px;
+    margin: 0 auto; /* 置中 */
+    padding: 20px;
+}
+
+/* 2. 單個成員區塊 */
+.team-member {
+    position: relative; /* 讓絕對定位的卡片以此為基準 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3. 頭貼樣式 (發光圓圈) */
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(0, 229, 255, 0.1);
+    border: 2px solid var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+    z-index: 2; /* 確保頭貼在線條上面 */
+}
+
+/* 如果有放圖片，讓圖片填滿圓圈 */
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 滑鼠移上去時頭貼發亮 */
+.team-member:hover .member-avatar {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 30px var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* 4. 彈出視窗卡片 (預設隱藏) */
+.member-card {
+    position: absolute;
+    width: 200px;
+    padding: 15px;
+    background: rgba(15, 23, 42, 0.9); /* 深色背景 */
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    
+    /* 隱藏狀態 */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 彈跳動畫效果 */
+    z-index: 10;
+    pointer-events: none; /* 避免還沒出現時誤觸 */
+}
+
+/* 5. 連接線 (使用偽元素 ::before 畫線) */
+.member-card::before {
+    content: '';
+    position: absolute;
+    width: 40px; /* 線的長度 */
+    height: 2px; /* 線的粗細 */
+    background: var(--accent-color);
+    top: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* --- 左側成員的卡片設定 (卡片出現在左邊) --- */
+.card-left {
+    right: 120px; /* 把卡片推到頭貼左邊 */
+    text-align: right;
+}
+.card-left::before {
+    right: -40px; /* 線連到卡片右側 */
+}
+
+/* --- 右側成員的卡片設定 (卡片出現在右邊) --- */
+.card-right {
+    left: 120px; /* 把卡片推到頭貼右邊 */
+    text-align: left;
+}
+.card-right::before {
+    left: -40px; /* 線連到卡片左側 */
+}
+
+/* 6. 滑鼠懸停時的觸發效果 */
+.team-member:hover .member-card {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); /* 回復正常大小 */
+}
+
+/* --- 手機版調整 (RWD) --- */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* 手機變成一直排 */
+        gap: 20px;
+    }
+    
+    /* 手機版卡片統一改為「顯示在下方」 */
+    .card-left, .card-right {
+        position: relative;
+        right: auto;
+        left: auto;
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        
+        /* 手機版不隱藏，直接顯示比較好操作 */
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+    
+    /* 手機版把線條改成垂直的 */
+    .member-card::before {
+        width: 2px;
+        height: 20px;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
