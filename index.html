@@ -3,103 +3,94 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>海洋生物保育資訊網</title>
+    <title>OCEAN VISION | 守護藍色國土</title>
     
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <style>
-        /* 100% 保持你原本的所有樣式設定 */
-        
-
-    </style>
+    <link rel="stylesheet" href="CSS/styles.css">
+    
 </head>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <body id="page-top">
-    <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav text-white p-4 list-unstyled">
-            <li class="sidebar-brand mb-4"><h4>海洋報告導覽</h4></li>
-            <li class="mb-2"><a class="text-white text-decoration-none js-scroll-trigger" href="#page-top">首頁</a></li>
-            <li class="mb-2"><a class="text-white text-decoration-none js-scroll-trigger" href="#about">報告目標</a></li>
-            <li class="mb-2"><a class="text-white text-decoration-none js-scroll-trigger" href="#services">核心問題</a></li>
-            <li class="mb-2"><a class="text-white text-decoration-none js-scroll-trigger" href="#portfolio">數據分析</a></li>
-            <li class="mb-2"><a class="text-white text-decoration-none js-scroll-trigger" href="#contact">地理位置</a></li>
-        </ul>
+
+    <div class="ocean-bg"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-glass">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#page-top"><i class="fa-solid fa-water me-2"></i>OCEAN VISION</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">議題核心</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#data">數據分析</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#map">熱點地圖</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz">知識挑戰</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <header class="masthead">
-        <div class="container px-4 px-lg-5 text-center">
-            <h1 class="mb-1 display-3 fw-bold">守護藍色國土</h1>
-            <h3 class="mb-5"><em>人類行為如何影響海洋？用數據聽見海洋的求救聲。</em></h3>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">了解現況</a>
+        <div class="overlay"></div>
+        <div class="container hero-content" data-aos="fade-up">
+            <h1 class="hero-title mb-3">聽見海洋的求救聲</h1>
+            <p class="lead mb-5 text-light">人類的行為正在改變這片藍色國土。透過數據，我們帶你看見真相。</p>
+            <a class="btn btn-neon js-scroll-trigger" href="#about">開始探索 <i class="fas fa-arrow-down ms-2"></i></a>
         </div>
     </header>
 
-    <section class="content-section bg-light" id="about">
-        <div class="container px-4 px-lg-5 text-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h2>SDG 14：海洋生態永續</h2>
-                    <p class="lead mb-5">海洋正面臨前所未有的危機。我們結合開放資料 API，視覺化呈現海水溫度上升與塑膠污染的嚴重性，並透過互動測驗推廣減塑生活。</p>
-                    <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">看挑戰細節</a>
+    <section class="section-padding" id="about">
+        <div class="container">
+            <h2 class="section-title">SDG 14 <span>關鍵挑戰</span></h2>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="glass-card p-4 text-center h-100 icon-box">
+                        <i class="fa-solid fa-temperature-arrow-up"></i>
+                        <h4>海水升溫</h4>
+                        <p class="small text-secondary-light">珊瑚白化加劇，導致海洋生物失去棲息地。</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="glass-card p-4 text-center h-100 icon-box">
+                        <i class="fa-solid fa-bottle-water"></i>
+                        <h4>微塑膠</h4>
+                        <p class="small text-secondary-light">塑膠微粒進入食物鏈，最終威脅人類健康。</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="glass-card p-4 text-center h-100 icon-box">
+                        <i class="fa-solid fa-fish-fins"></i>
+                        <h4>過度捕撈</h4>
+                        <p class="small text-secondary-light">破壞生態平衡，導致部分物種瀕臨滅絕。</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="glass-card p-4 text-center h-100 icon-box">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                        <h4>永續行動</h4>
+                        <p class="small text-secondary-light">透過減塑、淨灘與教育，重建人海共生關係。</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section bg-primary text-white text-center" id="services">
-        <div class="container px-4 px-lg-5">
-            <div class="content-section-heading">
-                <h3 class="text-secondary mb-0">Issues</h3>
-                <h2 class="mb-5">我們面臨的挑戰</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center d-flex flex-column align-items-center">
-                    <span class="service-icon rounded-circle mb-3"><i class="icon-drop"></i></span>
-                    <h4><strong>海水升溫</strong></h4>
-                    <p class="text-faded mb-0">珊瑚白化導致海洋棲地喪失</p>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 text-center d-flex flex-column align-items-center">
-                    <span class="service-icon rounded-circle mb-3"><i class="icon-ban"></i></span>
-                    <h4><strong>微塑膠</strong></h4>
-                    <p class="text-faded mb-0">進入食物鏈威脅人類健康</p>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-5 mb-md-0 text-center d-flex flex-column align-items-center">
-                    <span class="service-icon rounded-circle mb-3"><i class="icon-direction"></i></span>
-                    <h4><strong>棲地過載</strong></h4>
-                    <p class="text-faded mb-0">海洋生物活動空間日益緊縮</p>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center d-flex flex-column align-items-center">
-                    <span class="service-icon rounded-circle mb-3"><i class="icon-heart"></i></span>
-                    <h4><strong>永續保育</strong></h4>
-                    <p class="text-faded mb-0">透過數據驅動落實減塑行動</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section" id="portfolio">
-        <div class="container px-4 px-lg-5">
-            <div class="content-section-heading text-center">
-                <h3 class="text-secondary mb-0">Visualization</h3>
-                <h2 class="mb-5">海洋趨勢數據報告</h2>
-            </div>
-            <div class="row gx-4">
-                <div class="col-lg-6 mb-4">
-                    <div class="chart-card shadow">
-                        <h4 class="text-center mb-4">海洋塑膠累積預估量 (Mt)</h4>
+    <section class="section-padding" id="data">
+        <div class="container">
+            <h2 class="section-title">數據說話：<span>海洋的現狀</span></h2>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="glass-card p-3">
+                        <h5 class="text-center mb-3 text-info">全球海洋塑膠累積量 (百萬噸)</h5>
                         <canvas id="plasticChart"></canvas>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="chart-card shadow">
-                        <h4 class="text-center mb-4">珊瑚礁覆蓋率趨勢 (%)</h4>
+                <div class="col-lg-6">
+                    <div class="glass-card p-3">
+                        <h5 class="text-center mb-3 text-danger">全球珊瑚覆蓋率趨勢 (%)</h5>
                         <canvas id="coralChart"></canvas>
                     </div>
                 </div>
@@ -107,261 +98,109 @@
         </div>
     </section>
 
-    <section class="content-section bg-light" id="contact">
-        <div class="container px-4 px-lg-5">
-            <div class="content-section-heading text-center mb-5">
-                <h3 class="text-secondary mb-0">Geography</h3>
-                <h2>海洋汙染關鍵熱點標記</h2>
-                <p class="text-muted">點擊下方地點，查看其在地球上的具體位置</p>
-            </div>
+    <section class="section-padding" id="map">
+        <div class="container">
+            <h2 class="section-title">追蹤污染 <span>關鍵熱點</span></h2>
             <div class="row">
-                <div class="col-lg-4">
-                    <div id="btn-gpgp" class="hotspot-item active-gpgp" onclick="changeLocation('gpgp')">
-                        <h5 class="text-danger fw-bold"><i class="fas fa-trash-alt me-2"></i>太平洋垃圾帶 (GPGP)</h5>
-                        <p class="small text-muted mb-0">位於北太平洋，是全球最大的垃圾富集區。</p>
-                    </div>
-                    <div id="btn-river" class="hotspot-item" onclick="changeLocation('river')">
-                        <h5 style="color: #d4ac0d;" class="fw-bold"><i class="fas fa-water me-2"></i>東南亞汙染河流</h5>
-                        <p class="small text-muted mb-0">標記排放量極高的巴石河，揭示河川廢棄物入海路徑。</p>
-                    </div>
-                    <div id="btn-taiwan" class="hotspot-item" onclick="changeLocation('taiwan')">
-                        <h5 class="text-primary fw-bold"><i class="fas fa-anchor me-2"></i>台灣周邊海廢熱點</h5>
-                        <p class="small text-muted mb-0">基隆與西南海岸為洋流交匯處，常受海廢堆積困擾。</p>
+                <div class="col-lg-4 mb-4">
+                    <div class="list-group map-menu">
+                        <button class="list-group-item list-group-item-action active" onclick="updateMap('gpgp', this)">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"><i class="fa-solid fa-trash me-2"></i>太平洋垃圾帶</h5>
+                            </div>
+                            <small>Great Pacific Garbage Patch</small>
+                        </button>
+                        <button class="list-group-item list-group-item-action" onclick="updateMap('river', this)">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"><i class="fa-solid fa-water me-2"></i>巴石河 (污染源)</h5>
+                            </div>
+                            <small>菲律賓馬尼拉 主要排放河川</small>
+                        </button>
+                        <button class="list-group-item list-group-item-action" onclick="updateMap('taiwan', this)">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>台灣基隆嶼</h5>
+                            </div>
+                            <small>洋流交匯處 海廢堆積觀察點</small>
+                        </button>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div style="height: 450px; border-radius: 1rem; overflow: hidden; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);">
-                        <iframe id="map-iframe" width="100%" height="100%" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14949540.353360215!2d-150.0!3d32.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw"></iframe>
+                    <div class="glass-card p-2 h-100">
+                        <iframe id="mapFrame" 
+                                width="100%" height="450" 
+                                style="border:0; border-radius: 12px;" 
+                                loading="lazy" 
+                                allowfullscreen
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13725838.287236683!2d-155.60228076634795!3d36.31936359265243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzYnMTknMTAuMCJOIDE0NScwMCcwMC4wIlc!5e0!3m2!1szh-TW!2stw!4v1620000000000!5m2!1szh-TW!2stw">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section bg-primary text-white text-center">
-        <div class="container px-4 px-lg-5">
-            <h2 id="quiz-title" class="mb-4">互動測驗：海洋知識大挑戰</h2>
-            
-            <div id="quiz-wrapper" style="max-width: 600px; margin: 0 auto;">
-                <div class="d-flex justify-content-between mb-1">
-                    <small id="progress-text">題目：1 / 10</small>
-                    <small id="score-text">目前得分：0</small>
-                </div>
-                <div class="progress">
-                    <div id="quiz-progress-bar" class="progress-bar" role="progressbar" style="width: 10%"></div>
-                </div>
-
-                <div id="question-box">
-                    <h4 id="question-text" class="mb-4">載入中...</h4>
-                    <div id="options-area" class="row g-3">
+    <section class="section-padding" id="quiz" style="background: rgba(0,0,0,0.2);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="glass-card p-5">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold"><i class="fa-solid fa-clipboard-question me-2 text-warning"></i>海洋知識大挑戰</h2>
+                            <p class="text-muted" id="quiz-status">準備好測試你的海洋IQ了嗎？</p>
                         </div>
-                </div>
+                        
+                        <div id="quiz-container">
+                            <div class="progress mb-4" style="height: 10px; background: rgba(255,255,255,0.1);">
+                                <div id="progress-bar" class="progress-bar bg-info" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            
+                            <h4 id="question-text" class="mb-4 text-center lh-base">題目載入中...</h4>
+                            
+                            <div id="options-area" class="d-grid gap-3">
+                                </div>
+                        </div>
 
-                <div id="result-box" style="display: none;">
-                    <h1 id="final-score-display" class="display-3 fw-bold mb-4"></h1>
-                    <button class="btn btn-xl btn-light" onclick="resetQuiz()">重新挑戰</button>
+                        <div id="result-area" class="text-center d-none">
+                            <div class="mb-3">
+                                <i class="fa-solid fa-crown text-warning" style="font-size: 5rem;"></i>
+                            </div>
+                            <h3 class="mb-3">測驗完成！</h3>
+                            <h1 class="display-3 fw-bold text-info mb-4" id="final-score">0 分</h1>
+                            <button class="btn btn-neon" onclick="initQuiz()">再次挑戰</button>
+                        </div>
+
+                        <div id="feedback-area" class="mt-4 text-center fw-bold" style="min-height: 24px;"></div>
+                    </div>
                 </div>
             </div>
-
-            <div id="quiz-feedback" class="mt-4 h4" style="min-height: 1.5em;"></div>
         </div>
     </section>
 
-    <footer class="footer text-center py-5">
-        <div class="container px-4 px-lg-5">
-            <p class="text-muted small mb-0">熊貓23 海洋生物保育資訊網 ©2026 </p>
+    <footer class="text-center text-white-50">
+        <div class="container">
+            <p class="mb-2">&copy; 2026 網頁設計期末專題 - 海洋保育小組</p>
+            <p class="small">Data Sources: NOAA, Our World in Data, UN SDG 14</p>
             
-        </div>
-
-        <a
-        id="about-us-btn"
-        class="text-white-50 text-decoration-none"
-        data-bs-toggle="collapse"
-        href="#about-us-panel"
-        role="button"
-        aria-expanded="false"
-        aria-controls="about-us-panel"
-        >
-        關於我們
-        </a>
-
-        <!-- 點開才出現的內容 -->
-        <div id="about-us-panel" class="collapse mt-3">
-        <div class="card border-0" style="max-width: 720px; margin: 0 auto;">
-            <div class="card-body">
-            <h5 class="mb-3">關於我們</h5>
-            <p class="mb-3 text-muted">
-                是誰不見了呢?
-            </p>
-
-            <!-- 放照片：把 src 換成你的圖片路徑 -->
-            <img
-                src="./assets/about-us.jpg"
-                alt="About us"
-                class="img-fluid rounded"
-                loading="lazy"
-            />
+            <button class="btn btn-sm btn-outline-light mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#aboutUsCollapse">
+                關於開發團隊
+            </button>
+            <div class="collapse mt-3" id="aboutUsCollapse">
+                <div class="glass-card p-3 d-inline-block mx-auto" style="max-width: 500px;">
+                    <p class="mb-2">我們是熱愛海洋的開發者！</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <div class="text-center"><i class="fa-solid fa-user-astronaut fa-2x mb-1"></i><div class="small">組長</div></div>
+                        <div class="text-center"><i class="fa-solid fa-user-ninja fa-2x mb-1"></i><div class="small">前端</div></div>
+                        <div class="text-center"><i class="fa-solid fa-user-secret fa-2x mb-1"></i><div class="small">資料</div></div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-
     </footer>
 
-    <script>
-  // 1. 地圖邏輯 (完全保留你的 id 與 src)
-  function changeLocation(type) {
-    const map = document.getElementById('map-iframe');
-    const btns = document.querySelectorAll('.hotspot-item');
-    btns.forEach(b => b.classList.remove('active-gpgp', 'active-river', 'active-taiwan'));
-
-    if (type === 'gpgp') {
-      map.src = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14949540.353360215!2d-150.0!3d32.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
-      document.getElementById('btn-gpgp').classList.add('active-gpgp');
-    } else if (type === 'river') {
-      map.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15444.646867375685!2d120.9754!3d14.5937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca235882e753%3A0x6779e5a1b3f9f9b5!2sPasig%20River!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
-      document.getElementById('btn-river').classList.add('active-river');
-    } else if (type === 'taiwan') {
-      map.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d231365.17621111622!2d121.5794!3d25.1311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x345d4e104f296991%3A0x6b8764835848e040!2z5YWr5paX5a2Q!5e0!3m2!1szh-TW!2stw!4v1716000000000!5m2!1szh-TW!2stw";
-      document.getElementById('btn-taiwan').classList.add('active-taiwan');
-    }
-  }
-
-  // 3. 初始化 (保留你的圖表與側邊欄)
-  window.addEventListener('DOMContentLoaded', event => {
-    const sidebarWrapper = document.getElementById('sidebar-wrapper');
-    document.querySelector('.menu-toggle').addEventListener('click', e => {
-      e.preventDefault();
-      sidebarWrapper.classList.toggle('active');
-    });
-
-    new Chart(document.getElementById('plasticChart'), {
-      type: 'bar',
-      data: { labels: ['2015', '2018', '2021', '2024'], datasets: [{ label: '塑膠量 (Mt)', data: [4.8, 6.2, 8.5, 11.2], backgroundColor: '#1D809F' }] }
-    });
-    new Chart(document.getElementById('coralChart'), {
-      type: 'line',
-      data: { labels: ['1990', '2000', '2010', '2020'], datasets: [{ label: '覆蓋率 %', data: [45, 38, 28, 18], borderColor: '#e74c3c', fill: true }] }
-    });
-  });
-</script>
-
-<!-- ✅ 新增：用 questionBank.js 題庫 + 隨機抽題（不影響其他功能） -->
-<script type="module">
-  import { questionBank } from "./js/questionBank.js";
-
-
-
-  const QUIZ_COUNT = 10;
-  let quizQuestions = [];
-  let currentQ = 0;
-  let score = 0;
-
-  function shuffle(arr) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
-
-  function pickRandomQuestions(n) {
-    const bank = Array.isArray(questionBank) ? questionBank : [];
-    const picked = shuffle(bank).slice(0, Math.min(n, bank.length));
-    return picked;
-  }
-
-  function loadQuestion() {
-    const feedback = document.getElementById('quiz-feedback');
-    if (feedback) feedback.innerHTML = "";
-
-    const total = quizQuestions.length || QUIZ_COUNT;
-
-    const qData = quizQuestions[currentQ];
-    document.getElementById('question-text').innerText = qData.q;
-
-    document.getElementById('progress-text').innerText = `題目：${currentQ + 1} / ${total}`;
-    document.getElementById('quiz-progress-bar').style.width = `${((currentQ + 1) / total) * 100}%`;
-
-    const optionsArea = document.getElementById('options-area');
-    optionsArea.innerHTML = "";
-
-    qData.o.forEach((opt, index) => {
-      const col = document.createElement('div');
-      col.className = "col-md-6";
-
-      const btn = document.createElement('button');
-      btn.className = "btn btn-xl btn-outline-light w-100 py-3 mb-2";
-      btn.innerText = opt;
-      btn.onclick = () => checkAnswer(index === qData.a);
-
-      col.appendChild(btn);
-      optionsArea.appendChild(col);
-    });
-  }
-
-  function checkAnswer(isCorrect) {
-    const feedback = document.getElementById('quiz-feedback');
-    const scoreText = document.getElementById('score-text');
-
-    const qData = quizQuestions[currentQ];
-
-    if (isCorrect) {
-      score += 10;
-      if (feedback) {
-        feedback.innerHTML = "✨ 正確！" + (qData.e ? ` <span class="small d-block mt-2">${qData.e}</span>` : "");
-        feedback.style.color = "#2ecc71";
-      }
-    } else {
-      const correct = qData.o[qData.a];
-      if (feedback) {
-        feedback.innerHTML = `❌ 答錯了，正確答案是：${correct}` + (qData.e ? ` <span class="small d-block mt-2">${qData.e}</span>` : "");
-        feedback.style.color = "#f1c40f";
-      }
-    }
-
-    if (scoreText) scoreText.innerText = `目前得分：${score}`;
-
-    setTimeout(() => {
-      currentQ++;
-      if (currentQ < quizQuestions.length) {
-        loadQuestion();
-      } else {
-        showResult();
-      }
-    }, 1000);
-  }
-
-  function showResult() {
-    document.getElementById('question-box').style.display = 'none';
-    document.getElementById('result-box').style.display = 'block';
-    document.getElementById('quiz-feedback').innerHTML = "";
-    document.getElementById('final-score-display').innerText = `${score} / ${quizQuestions.length * 10}`;
-    document.getElementById('quiz-title').innerText = "測驗完成！";
-  }
-
-  function resetQuiz() {
-    quizQuestions = pickRandomQuestions(QUIZ_COUNT);
-    currentQ = 0;
-    score = 0;
-
-    document.getElementById('score-text').innerText = "目前得分：0";
-    document.getElementById('question-box').style.display = 'block';
-    document.getElementById('result-box').style.display = 'none';
-    document.getElementById('quiz-title').innerText = "互動測驗：海洋知識大挑戰";
-    document.getElementById('quiz-feedback').innerHTML = "";
-
-    loadQuestion();
-  }
-
-  // ✅ 讓 HTML 的 onclick="resetQuiz()" 能用（module 作用域不會自動變全域）
-  window.resetQuiz = resetQuiz;
-
-  // 初次載入也抽題
-  window.addEventListener('DOMContentLoaded', () => {
-    resetQuiz();
-  });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/questionBank.js"></script> 
+    <script src="js/scripts.js"></script>
 
 </body>
 </html>
